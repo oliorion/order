@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+  <style>
+    /* 탭 스타일 */
+    .tab-container {
+        display: flex;
+        border-bottom: 2px solid #ccc;
+    }
+    .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        background-color: #f1f1f1;
+        margin-right: 5px;
+    }
+    .tab.active {
+        background-color: #ffffff;
+        font-weight: bold;
+    }
+
+    /* 콘텐츠 스타일 */
+    .content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+    }
+    .content.active {
+        display: block;
+    }
+
+</style>
+
+
+</head>
+
+
+<script>
+  function showTab(tabId) {
+      // 모든 탭에서 active 클래스 제거
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      document.querySelectorAll(".content").forEach(content => content.classList.remove("active"));
+
+      // 클릭한 탭과 해당 콘텐츠에 active 클래스 추가
+      document.querySelector("[onclick=\"showTab('" + tabId + "')\"]").classList.add("active");
+      document.getElementById(tabId).classList.add("active");
+  }
+
+  function toggleSubmenu(menuId) {
+    var submenu = document.getElementById(menuId);
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+  }
+
+
+
+
+</script>
+
+
+<body>
+  <header>
+
+    <div class="nav">
+
+
+
+      <div class="menu-bar">
+        <!-- <h1 class="logo">Menu</h1> -->
+        <ul>
+          <li><a href="#">STARTERS<i class="fas fa-caret-down"></i></a>
+
+          <div class="dropdown-menu">
+            <ul>
+              <li><a href="#" onclick="showTab('COLD STARTERS')">COLD STARTERS</a></li>
+              <li><a href="#" onclick="showTab('HOT STARTERS')">HOT STARTERS</a></li>
+            </ul>
+          </div>
+
+          <li><a href="#">SUSHI & SASHIMI<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#" onclick="showTab('SUSHI & SASHIMI')">SUSHI & SASHIMI</a></li>
+                <li><a href="#" onclick="showTab('GUNKAN SUSHI')">GUNKAN SUSHI</a></li>
+                <li><a href="#" onclick="showTab('COOKED SUSHI')">COOKED SUSHI</a></li>
+              </ul>
+            </div>
+
+          <li><a href="#" onclick="showTab('MAKI & ROLLS 1')">MAKI & ROLLS 1<i class="fas fa-caret-down"></i></a>
+
+          </li>
+          <li><a href="#" >MAKI & ROLLS 2<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#" onclick="showTab('FRIED ROLL')">FRIED ROLL</a></li>
+                <li><a href="#" onclick="showTab('GLUTEN FREE ROLL')">GLUTEN FREE ROLL</a></li>
+                <li><a href="#" onclick="showTab('SUSHI ROLL EXTRAS')">SUSHI ROLL EXTRAS</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><a href="#" >SUSHI SPECIALS<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#" onclick="showTab('DONBURI RICE BOWL')">DONBURI RICE BOWL</a></li>
+                <li><a href="#" onclick="showTab('SUSHI COMBOS')">SUSHI COMBOS</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li><a href="#" >KITCHEN ENTREES<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#" onclick="showTab('TERIYAKI')">TERIYAKI</a></li>
+                <li><a href="#" onclick="showTab('KATSU')">KATSU</a></li>
+                <li><a href="#" onclick="showTab('UDON(SOUP)')">UDON(SOUP)</a></li>
+                <li><a href="#" onclick="showTab('KIDS BENTO')">KID'S BENTO</a></li>
+                <li><a href="#" onclick="showTab('SIDES')">SIDES</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li><a href="#" >DRINK & DESSERT<i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#"  onclick="showTab('DRINK')">DRINK</a></li>
+                <li><a href="#"  onclick="showTab('DESSERT')">DESSERT</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+
+   <!-- 탭 버튼
+   <div class="tab-container">
+    <div class="tab active" onclick="showTab('HOT STARTERS')">STARTERS</div>
+    <div class="tab" onclick="showTab('SUSHI & SASHIMI')">SUSHI & SASHIMI</div>
+    <div class="tab" onclick="showTab('MAKI & ROLLS 1')">MAKI & ROLLS 1</div>
+    <div class="tab" onclick="showTab('MAKI & ROLLS 2')">MAKI & ROLLS 2</div>
+    <div class="tab" onclick="showTab('SUSHI SPECIALS')">SUSHI SPECIALS</div>
+    <div class="tab" onclick="showTab('KITCHEN ENTREES')">KITCHEN ENTREES</div>
+    <div class="tab" onclick="showTab('DRINK & DESSERT')">DRINK & DESSERT</div>
+  </div> -->
+
+
+      <!-- <a href="#" class="logo">
+        <ion-icon name="fast-food"></ion-icon>
+        Sushi Menu
+      </a>
+      <a href="#" class="logo">
+        <ion-icon name="dfdf"></ion-icon>
+        Sushi Menu
+      </a> -->
+      <div class="box">
+        <div class="cart-count">0</div>
+        <ion-icon name="cart"  id="cart-icon" ></ion-icon>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content">
+<!--
+          <div class="cart-box">
+            <img src="images/97.jpg" class="cart-img">
+            <div class="detail-box">
+              <div class="cart-food-title">Special Dosai</div>
+              <div class="price-box">
+                <div class="cart-price">$72</div>
+                 <div class="cart-amt">$72</div>
+             </div>
+              <input type="number" value="1" class="cart-quantity">
+            </div>
+            <ion-icon name="trash" class="cart-remove"></ion-icon>
+          </div>
+
+          <div class="cart-box">
+            <img src="images/97.jpg" class="cart-img">
+            <div class="detail-box">
+              <div class="cart-food-title">Special Dosai</div>
+              <div class="price-box">
+                <div class="cart-price">$72</div>
+                 <div class="cart-amt">$72</div>
+             </div>
+              <input type="number" value="1" class="cart-quantity">
+            </div>
+            <ion-icon name="trash" class="cart-remove"></ion-icon>
+          </div>
+        -->
+        </div>
+
+
+
+        
+      <div class="total" >
+        <div class="total-title">Total</div>
+ 
+        <span id="cart-total-items"></span> <!-- 카트 상품 개수 표시 -->
+
+        <div class="total-price">$0</div>
+      </div>
+      
+      <button class="btn-buy">ORDER</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+  <div class="overlay" onclick="hidePopup()">
+  </div>
+  <div class="popup" onclick="hidePopup()">
+    <img id="popup-img" src="" alt="">
+  </div>
+
+
+
+
+
+  <div id="COLD STARTERS" class="content active">
+    <h2 class="title">COLD STARTERS</h2>
+    <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/HOUSE SALAD (V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOUSE SALAD (V)</h2>
+      <h5 class="food-detail">organic spring mix, cherry tomatoes, english cucumber, ginger dressing</h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/CUCUMBER SUNOMONO (V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CUCUMBER SUNOMONO (V)</h2>
+      <h5 class="food-detail">english cucumber, house ponzu sauce</h2>
+      <span class="food-price">$6</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/SEAWEED SALAD (VG).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SEAWEED SALAD (VG)</h2>
+      <h5 class="food-detail">Seasoned seaweed salad, topped with sesame seeds</h2>
+      <span class="food-price">$6</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/SQUID SALAD.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SQUID SALAD</h2>
+      <h5 class="food-detail">Squid salad with japanese pickled vegetables</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TAKO WASABI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TAKO WASABI</h2>
+      <h5 class="food-detail">Raw baby octopus mixed with wasabi, topped with ikura</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/CHILI ESCOLAR.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHILI ESCOLAR</h2>
+      <h5 class="food-detail">escolar, honey thai chili, garlic chips, spicy cilantro ponzu</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/AHI TOWER.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">AHI TOWER</h2>
+      <h5 class="food-detail">tuna, kani crab, avocado, cucumber, tobiko trio, crunchy flakes, honey wasabi, nori</h2>
+      <span class="food-price">$27</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/SASHIMI SAMPLER (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SASHIMI SAMPLER (GF)</h2>
+      <h5 class="food-detail">11 pieces sashimi (chef's choice)</h2>
+      <span class="food-price">$27</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/KAI CEVICHE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KAI CEVICHE</h2>
+      <h5 class="food-detail">tuna, salmon, yellowtail, escolar sashimi (8 pieces) in spicy cilantro ponzu sauce served with seaweed salad and daikon</h2>
+      <span class="food-price">$24</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+    </div>
+  </div>
+ 
+
+
+
+
+ <div id="HOT STARTERS" class="content">
+  <h2 class="title">HOT STARTERS</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/MISO SOUP (GF,VG).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MISO SOUP (GF,VG)</h2>
+      <h5 class="food-detail">tofu, green onions, and seaweed in shiro miso broth</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/EDAMAME (GF, V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">EDAMAME (GF, V)</h2>
+      <h5 class="food-detail">green soybeans topped with Himalayan salt</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/SPICY GARLIC EDAMAME (V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY GARLIC EDAMAME (V)</h2>
+      <h5 class="food-detail">green soybeans stir-fried with spicy garlic sauce</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/GYOZA (CHICKEN OR PORK).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">GYOZA (CHICKEN OR PORK)</h2>
+      <h5 class="food-detail">japanese dumplings served with ponzu dipping sauce (choice of pan-fried or deep-fried)</h2>
+      <span class="food-price">$8</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/AGEDASHI TOFU.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">AGEDASHI TOFU</h2>
+      <h5 class="food-detail">crispy tofu topped with dried bonito flakes and green onions, served with light soy broth</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TAKOYAKI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TAKOYAKI</h2>
+      <h5 class="food-detail">grilled balls of batter (flour, egg) filled with chopped octopus topped with takoyaki sauce, ito katsuo, and bonito flakes</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/KARAAGE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KARAAGE</h2>
+      <h5 class="food-detail">Japanese style fried chicken</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/IKA GESO (CALAMARI).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">IKA GESO (CALAMARI)</h2>
+      <h5 class="food-detail">Japanese style fried squid legs</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - shrimp (3 pieces).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - shrimp (3 pieces)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - vegetable (5 pieces) (VG).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - vegetable (5 pieces) (VG)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - combo (3 shrimps, 5 veg).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - combo (3 shrimps, 5 veg)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - soft-shell crab (2 pieces).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - soft-shell crab (2 pieces)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - anago (2 pieces).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - anago (2 pieces)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/TEMPURA APPETIZER - lobster (whole tail).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA APPETIZER - lobster (whole tail)</h2>
+      <h5 class="food-detail">lightly battered and deep-fried, served with tempura dipping sauce</h2>
+      <span class="food-price">$16</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/AVOCADO BOMB.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">AVOCADO BOMB</h2>
+      <h5 class="food-detail">baked avocado stuffed with spicy kani crab mix, topped with ebi shrimp, masago, sesame seeds</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/MUSHROOM POPPERS.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MUSHROOM POPPERS</h2>
+      <h5 class="food-detail">tempura fried shiitake mushrooms stuffed with spicy tuna, topped with spicy mayo, eel sauce, green onions, sesame seeds</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/JALAPEÑO POPPERS.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">JALAPEÑO POPPERS</h2>
+      <h5 class="food-detail">tempura fried jalapeño stuffed with cream cheese and spicy tuna, topped with spicy mayo, eel sauce, green onions, sesame seeds</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/STARTERS/SPICY TUNA CRISPY RICE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY TUNA CRISPY RICE (GF)</h2>
+      <h5 class="food-detail">crispy fried sushi rice balls topped with tuna mixed in spicy sauce, topped with jalapeno, spicy mayo and sesame seeds</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+</div>>
+
+
+
+<div id="SUSHI & SASHIMI" class="content">
+  <h2 class="title">SUSHI & SASHIMI</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/MAGURO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MAGURO (GF)</h2>
+      <h5 class="food-detail">$19</h2>
+      <span class="food-price">$4.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/BINNAGA (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">BINNAGA (GF)</h2>
+      <h5 class="food-detail">$14</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/O'TORO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">O'TORO (GF)</h2>
+      <h5 class="food-detail">$36</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/SHIMA AJI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SHIMA AJI (GF)</h2>
+      <h5 class="food-detail">$20</h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/SAKE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE (GF)</h2>
+      <h5 class="food-detail">$15</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/HOTATEGAI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOTATEGAI (GF)</h2>
+      <h5 class="food-detail">$16</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/SAKE TORO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE TORO (GF)</h2>
+      <h5 class="food-detail">$16</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/IKA (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">IKA (GF)</h2>
+      <h5 class="food-detail">$16</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/HAMACHI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HAMACHI (GF)</h2>
+      <h5 class="food-detail">$17</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/AMA EBI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">AMA EBI (GF)</h2>
+      <h5 class="food-detail">$28</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/HAMACHI TORO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HAMACHI TORO (GF)</h2>
+      <h5 class="food-detail">$20</h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/WAGYU BEEF NIGIRI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">WAGYU BEEF NIGIRI</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/ESCOLAR (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ESCOLAR (GF)</h2>
+      <h5 class="food-detail">$15</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/SUZUKI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SUZUKI (GF)</h2>
+      <h5 class="food-detail">$14</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/Hamachi Kama Sashimi (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">Hamachi Kama Sashimi (GF)</h2>
+      <h5 class="food-detail">$24</h2>
+      <span class="food-price">-</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/HIRAME (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HIRAME (GF)</h2>
+      <h5 class="food-detail">$18</h2>
+      <span class="food-price">$4.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/MADAI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MADAI (GF)</h2>
+      <h5 class="food-detail">$18</h2>
+      <span class="food-price">$4.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+
+
+
+
+ <div id="GUNKAN SUSHI" class="content">
+  <h2 class="title">GUNKAN SUSHI</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/SPICY HOTATEGAI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY HOTATEGAI (GF)</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/MASAGO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MASAGO (GF)</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/TOBIKO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TOBIKO (GF)</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/YUZU TOBIKO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">YUZU TOBIKO (GF)</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/IKURA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">IKURA</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/WASABI TOBIKO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">WASABI TOBIKO (GF)</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/UNI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">UNI</h2>
+      <h5 class="food-detail">-</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+  
+ 
+ 
+ <div id="COOKED SUSHI" class="content">
+  <h2 class="title">COOKED SUSHI</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/KUNSEI SAKE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KUNSEI SAKE (GF)</h2>
+      <h5 class="food-detail">$17</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/ZUWAIGANI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ZUWAIGANI (GF)</h2>
+      <h5 class="food-detail">$28</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/TAKO (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TAKO (GF)</h2>
+      <h5 class="food-detail">$15</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/UNAGI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">UNAGI</h2>
+      <h5 class="food-detail">$16</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/ANAGO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ANAGO</h2>
+      <h5 class="food-detail">$28</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/EBI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">EBI (GF)</h2>
+      <h5 class="food-detail">$14</h2>
+      <span class="food-price">$3.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/KANI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KANI</h2>
+      <h5 class="food-detail">$12</h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI & SASHIMI/TAMAGO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TAMAGO</h2>
+      <h5 class="food-detail">$12</h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <div id="MAKI & ROLLS 1" class="content">
+  <h2 class="title">MAKI & ROLL 1</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/CALIFORNIA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CALIFORNIA ROLL</h2>
+      <h5 class="food-detail">kani crab, cucumber, avocado</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/UNAGI ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">UNAGI ROLL</h2>
+      <h5 class="food-detail">freshwater eel, avocado, topped with eel sauce</h2>
+      <span class="food-price">$11</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SHRIMP TEMPURA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SHRIMP TEMPURA ROLL</h2>
+      <h5 class="food-detail">shrimp tempura, cucumber, avocado, eel sauce, toasted sesame</h2>
+      <span class="food-price">$11</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SALMON SKIN ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SALMON SKIN ROLL</h2>
+      <h5 class="food-detail">fried salmon skin, cucumber, avocado, masago, microgreens, topped with eel sauce, sesame seeds (6 pcs)</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/CRUNCHY ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CRUNCHY ROLL</h2>
+      <h5 class="food-detail">shrimp tempura, kani crab, cucumber, avocado roll topped with crunchy flakes, eel sauce</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SPIDER ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPIDER ROLL</h2>
+      <h5 class="food-detail">fried soft-shell crab, cucumber, avocado, masago, microgreens, eel sauce, sesame seeds (6 pcs)</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/RAINBOW ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">RAINBOW ROLL</h2>
+      <h5 class="food-detail">kani crab, cucumber, avocado roll topped with tuna, salmon, escolar, red snapper, shrimp, and avocado</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/DRAGON ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">DRAGON ROLL</h2>
+      <h5 class="food-detail">kani crab, cucumber, avocado roll topped with unagi, avocado, eel sauce, sesame seeds</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/CRABBEAN ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CRABBEAN ROLL</h2>
+      <h5 class="food-detail">inside: fried soft-shell crab, spicy tuna, cucumber, masago top: eel sauce, sesame seeds (6 pcs)</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/VEGAS ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">VEGAS ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, avocado, masago top: crunch flakes, eel & honey wasabi sauce</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/FUTOMAKI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">FUTOMAKI</h2>
+      <h5 class="food-detail">tuna, masago, kani crab, tamago, kanpyo, cucumber, avocado, oshinko (6 pcs)</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/CATERPILLAR ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CATERPILLAR ROLL</h2>
+      <h5 class="food-detail">unagi, cucumber roll topped with avocado, eel sauce, sesame seeds</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SHAGGY DOG ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SHAGGY DOG ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, cream cheese, avocado top: shredded kani crab, spicy mayo & eel sauce</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/ATX ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ATX ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, avocado top: spicy tuna, rayu sauce, eel sauce</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/WHITE DRAGON ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">WHITE DRAGON ROLL</h2>
+      <h5 class="food-detail">inside: kani crab, cucumber, avocado roll top: escolar, fried garlic chip, honey wasabi sauce</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/ΚΑΙ ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ΚΑΙ ROLL</h2>
+      <h5 class="food-detail">inside: salmon, ebi shrimp, kani crab, masago, cucumber, avocado wrapped in soy paper top: crunchy flakes, eel sauce (6 pcs)</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/RED DRAGON ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">RED DRAGON ROLL</h2>
+      <h5 class="food-detail">inside: unagi, kani crab, avocado, cucumber top: spicy tuna, eel sauce, rayu sauce, green onions, sesame seeds</h2>
+      <span class="food-price">$16</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SUMO ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SUMO ROLL</h2>
+      <h5 class="food-detail">inside: tuna, salmon, yellowtail, cucumber, avocado, microgreens top: spicy mayo, eel sauce (6 pcs)</h2>
+      <span class="food-price">$16</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/JUDY ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">JUDY ROLL</h2>
+      <h5 class="food-detail">inside: pepper tuna, cucumber, avocado top: tuna, salmon, snapper, escolar, ebi shrimp, jalapeno, mustard-soy sauce on top</h2>
+      <span class="food-price">$16</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/ONLY YOU ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ONLY YOU ROLL</h2>
+      <h5 class="food-detail">inside: cream cheese, crab mix, avocado top: strawberry, tuna, sweet chili sauce, butter sauce, crunchy flakes, green onion (6 pcs)</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/LOBSTER TEMPURA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">LOBSTER TEMPURA ROLL</h2>
+      <h5 class="food-detail">inside: lobster tempura, avocado, cucumber, microgreens top: crunchy flakes, eel sauce (6 pcs)</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/VOLCANO ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">VOLCANO ROLL</h2>
+      <h5 class="food-detail">inside: kani crab, avocado, cucumber top: baked spicy mix (scallop, kani crab, masago)</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/TNT ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TNT ROLL</h2>
+      <h5 class="food-detail">inside: salmon, kani crab, avocado, jalapeno roll wrapped in soy paper top: spicy chopped mix of kani crab & shrimp tempura, eel sauce, sesame seeds (6 pcs)</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SPICY TATAKI ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY TATAKI ROLL</h2>
+      <h5 class="food-detail">inside: spicy tuna, cucumber top: pepper tuna, jalapeno, ponzu, rayu, green onions, sesame seeds</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/HOT MAMA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOT MAMA ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, jalapeno, avocado top: torched salmon, escolar, garlic chips, mustard-soy sauce</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SWEET DRAGON ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SWEET DRAGON ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, masago, cucumber roll top: unagi, avocado, eel sauce, sesame seeds</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/JAY'S SIGNATURE ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">JAY'S SIGNATURE ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, cream cheese, avocado top: salmon, avocado, spicy mayo</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/MEXICAN ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MEXICAN ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, avocado, jalapeno roll top: spicy tuna, crunchy flakes, spicy mayo, green onion, masago</h2>
+      <span class="food-price">$18</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/FIRE ANTS ON A LOG ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">FIRE ANTS ON A LOG ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, avocado top: crab, spicy mayo, spicy crunchy flakes</h2>
+      <span class="food-price">$18</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/GODZILLA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">GODZILLA ROLL</h2>
+      <h5 class="food-detail">inside: lobster tempura, cream cheese, avocado, jalapeno top: crab salad mix, spicy mayo, house eel sauce (6 pcs)</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/I LOVE YOU ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">I LOVE YOU ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, spicy tuna top: pepper tuna, honey wasabi, goat cheese, green onion</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/ΚΑΙ SPRING ROLL (NO RICE).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ΚΑΙ SPRING ROLL (NO RICE)</h2>
+      <h5 class="food-detail">inside: kani crab, salmon, tuna, avocado, cucumber, microgreens, organic spring mix, fuji apple top: wrapped in rice paper, cilantro ponzu sauce</h2>
+      <span class="food-price">$21</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/TEXAS TUNA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEXAS TUNA ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, albacore tuna, spicy tuna top: o'toro (fatty tuna), jalapeno, himalayan salt garlic chip, eel sauce, goat cheese, yuzu tobiko, sriracha</h2>
+      <span class="food-price">$27</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/WHEN BEEF MET THE SEA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">WHEN BEEF MET THE SEA ROLL</h2>
+      <h5 class="food-detail">inside: shrimp tempura, cream cheese, jalapeno top: crab, seared wagyu beef, himalayan salt, garlic chip, green onion, eel sauce, honey wasabi s 1 auce, goat cheese</h2>
+      <span class="food-price">$28</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 1/SUPER GODZILLA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SUPER GODZILLA ROLL</h2>
+      <h5 class="food-detail">inside: whole lobster tail tempura, albacore tuna, kani crab, cucumber, avocado, pickled jalapeno top: spicy tuna, eel sauce, spicy mayo, butter sauce, masago, green onion, sesame s 2 eed</h2>
+      <span class="food-price">$29</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+
+
+
+ <div id="FRIED ROLL" class="content">
+  <h2 class="title">FRIED ROLS</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/ATOMIC BOMB ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ATOMIC BOMB ROLL</h2>
+      <h5 class="food-detail">inside: deep fried spicy white fish top: spicy mayo, eel sauce, green onion, sesame seeds</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/TEMPURA ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEMPURA ROLL</h2>
+      <h5 class="food-detail">inside: salmon, cream cheese, avocado roll battered & deep-fried top: spicy mayo</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/HAMACHI CHILI ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HAMACHI CHILI ROLL</h2>
+      <h5 class="food-detail">inside: deep fried yellowtail, cream cheese, pickled jalapeno top: eel sauce, green onion</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/MIKEY ROLL.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MIKEY ROLL</h2>
+      <h5 class="food-detail">inside: tuna roll battered and deep-fried top: house butter sauce, eel sauce, Sriracha, masago, green onions, sesame seeds</h2>
+      <span class="food-price">$14</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+
+
+  
+ <div id="GLUTEN FREE ROLL" class="content">
+  <h2 class="title">GLUTEN FREE ROLL</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/CUCUMBER ROLL (GF, V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CUCUMBER ROLL (GF, V)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/AVOCADO ROLL (GF, V).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">AVOCADO ROLL (GF, V)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$8</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/SAKE MAKI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE MAKI (GF)</h2>
+      <h5 class="food-detail">salmon roll</h2>
+      <span class="food-price">$10</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/TEKKA MAKI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEKKA MAKI (GF)</h2>
+      <h5 class="food-detail">tuna roll</h2>
+      <span class="food-price">$11</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/NEGI HAMACHI (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">NEGI HAMACHI (GF)</h2>
+      <h5 class="food-detail">yellowtail, green onion, masago</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/SPICY SALMON ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY SALMON ROLL (GF)</h2>
+      <h5 class="food-detail">spicy salmon, cucumber</h2>
+      <span class="food-price">$11</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/SPICY TUNA ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY TUNA ROLL (GF)</h2>
+      <h5 class="food-detail">spicy tuna, cucumber</h2>
+      <span class="food-price">$11</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/SPICY YELLOWTAIL ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY YELLOWTAIL ROLL (GF)</h2>
+      <h5 class="food-detail">spicy yellowtail, cucumber</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/SPICY SCALLOP ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SPICY SCALLOP ROLL (GF)</h2>
+      <h5 class="food-detail">spicy scallop, masago, cucumber</h2>
+      <span class="food-price">$13</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/PHILADELPHIA ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">PHILADELPHIA ROLL (GF)</h2>
+      <h5 class="food-detail">smoked salmon, cream cheese, avocado</h2>
+      <span class="food-price">$12</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/GEISHA ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">GEISHA ROLL (GF)</h2>
+      <h5 class="food-detail">inside: spicy tuna, cucumber top: salmon, avocado, spicy mayo</h2>
+      <span class="food-price">$16</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/LEANDER ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">LEANDER ROLL (GF)</h2>
+      <h5 class="food-detail">inside: spicy yellowtail, cucumber top: escolar, jalapeno, tobiko</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/RED SNOW ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">RED SNOW ROLL (GF)</h2>
+      <h5 class="food-detail">inside: spicy tuna, avocado, cucumber top: salmon, spicy mayo, spicy crunchy flake</h2>
+      <span class="food-price">$18</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/NINJA ROLL (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">NINJA ROLL (GF)</h2>
+      <h5 class="food-detail">inside: spicy tuna, avocado, cucumber, cilantro, jalapeno top: yellowtail, spicy mayo, Sriracha</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+
+
+
+
+ <div id="SUSHI ROLL EXTRAS" class="content">
+  <h2 class="title">SUSHI ROLL EXTRAS</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/sub soy paper.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">sub soy paper</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$2.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add avocado.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add avocado</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$1.50</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add cucumber.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add cucumber</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$1.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add jalapeno (top or inside).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add jalapeno (top or inside)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$1.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/sub snow crab (2pcs).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">sub snow crab (2pcs)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$7.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add cream cheese.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add cream cheese</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$1.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add crunchy flakes.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add crunchy flakes</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$1.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/MAKI & ROLLS 2/add masago (top or inside).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">add masago (top or inside)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$2.00</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+
+ <div id="DONBURI RICE BOWL" class="content">
+  <h2 class="title">DONBURI RICE BOWL</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/HWEDUPBAP (Korean sashimi rice).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HWEDUPBAP (Korean sashimi rice)</h2>
+      <h5 class="food-detail">poke-style assortment of raw fish and fresh vegetable mix served on a bed of steamed rice. Served with house spicy gochujang s 1 auce</h2>
+      <span class="food-price">$29</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/TEKKA DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TEKKA DON</h2>
+      <h5 class="food-detail">tuna sashimi on sushi rice</h2>
+      <span class="food-price">$28</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/SAKE-TEKKA DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE-TEKKA DON</h2>
+      <h5 class="food-detail">tuna sashimi and salmon sashimi on sushi rice</h2>
+      <span class="food-price">$26</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/SAKE DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE DON</h2>
+      <h5 class="food-detail">salmon sashimi on sushi rice</h2>
+      <span class="food-price">$24</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/SAKE TORO DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE TORO DON</h2>
+      <h5 class="food-detail">fatty salmon sashimi on sushi rice</h2>
+      <span class="food-price">$26</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/SAKE IKURA DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SAKE IKURA DON</h2>
+      <h5 class="food-detail">salmon sashimi and ikura (salmon roe) on sushi rice</h2>
+      <span class="food-price">$29</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/HAMACHI DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HAMACHI DON</h2>
+      <h5 class="food-detail">yellowtail sashimi on sushi rice</h2>
+      <span class="food-price">$26</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/UNAGI DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">UNAGI DON</h2>
+      <h5 class="food-detail">broiled fresh water eel on sushi rice with sliced avocado</h2>
+      <span class="food-price">$27</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/CHIRASHI DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHIRASHI DON</h2>
+      <h5 class="food-detail">assorted sashimi on sushi rice</h2>
+      <span class="food-price">$39</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/KAISEN DON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KAISEN DON</h2>
+      <h5 class="food-detail">sashimi from Hokkaido on sushi rice</h2>
+      <span class="food-price">$60</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div id="SUSHI COMBOS" class="content">
+  <h2 class="title">SUSHI COMBOS</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/FAITH.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">FAITH</h2>
+      <h5 class="food-detail">served with miso soup, 8 pieces sushi (chef's choice) & salmon roll</h2>
+      <span class="food-price">$39</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/HOPE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOPE</h2>
+      <h5 class="food-detail">served with miso soup (up to 2), 12 pieces sushi (chef's choice) & 2 rolls (salmon roll, shrimp tempura roll)</h2>
+      <span class="food-price">$59</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/LOVE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">LOVE</h2>
+      <h5 class="food-detail">served with miso soup (up to 3), spicy garlic edamame, agedashi tofu, 3 specialty rolls, 20 pieces of sushi (chef's choice)</h2>
+      <span class="food-price">$130</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/SASHIMI MORIAWASE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SASHIMI MORIAWASE</h2>
+      <h5 class="food-detail">served with miso soup (up to 2), spicy garlic edamame, agedashi tofu, 36 pieces of sashimi combination (chef's choice of 9 kinds of fish)</h2>
+      <span class="food-price">$140</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/KAI FOR 2.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KAI FOR 2</h2>
+      <h5 class="food-detail">served with miso soup, house salad, spicy garlic edamame, agedashi tofu, 2 special rolls, 3 kinds of sashimi, 14 pieces of sushi (chef's choice)</h2>
+      <span class="food-price">$140</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/SUSHI SPECIALS/KAI FOR 3.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KAI FOR 3</h2>
+      <h5 class="food-detail">served with miso soup, house salad, spicy garlic edamame, agedashi tofu, Ika geso (calamari), 3 special rolls, 5 kinds of sashimi, 21 pieces of sushi (chef's choice)</h2>
+      <span class="food-price">$200</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+
+
+
+ <div id="TERIYAKI" class="content">
+  <h2 class="title">TERIYAKI</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/CHICKEN TERIYAKI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHICKEN TERIYAKI</h2>
+      <h5 class="food-detail">grilled and topped with teriyaki sauce and sesame seeds. Served with stir-fried vegetables, miso soup, house salad, and rice</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/SALMON TERIYAKI.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SALMON TERIYAKI</h2>
+      <h5 class="food-detail">grilled and topped with teriyaki sauce and sesame seeds. Served with stir-fried vegetables, miso soup, house salad, and rice</h2>
+      <span class="food-price">$27</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/TOFU TERIYAKI (VG).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TOFU TERIYAKI (VG)</h2>
+      <h5 class="food-detail">grilled and topped with teriyaki sauce and sesame seeds. Served with stir-fried vegetables, miso soup, house salad, and rice</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ <div id="KATSU" class="content">
+  <h2 class="title">KATSU</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/CHICKEN KATSU.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHICKEN KATSU</h2>
+      <h5 class="food-detail">panko-crusted and deep-fried, served with katsu dipping sauce, miso soup, house salad, and rice</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/DON KATSU (PORK).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">DON KATSU (PORK)</h2>
+      <h5 class="food-detail">panko-crusted and deep-fried, served with katsu dipping sauce, miso soup, house salad, and rice</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div id="UDON(SOUP)" class="content">
+  <h2 class="title">UDON(SOUP)</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/UDON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">UDON</h2>
+      <h5 class="food-detail">Japanese noodle soup in special broth with kamaboko (Japanese fish cake) and kani crab, veggies, shiitake mushroom, garnished with crunchy flakes, seaweed, and green onions. Shichimi togarashi (Japanese pepper) available upon request.</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/VEGETABLE TEMPURA UDON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">VEGETABLE TEMPURA UDON</h2>
+      <h5 class="food-detail">Japanese noodle soup in special broth with 3 pcs vegetable tempura, kamaboko (Japanese fish cake) and kani crab, veggies, shiitake mushroom, garnished with crunchy flakes, seaweed, and green onions. Shichimi togarashi (Japanese pepper) available upon request.</h2>
+      <span class="food-price">$18</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/SHRIMP TEMPURA UDON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SHRIMP TEMPURA UDON</h2>
+      <h5 class="food-detail">Japanese noodle soup in special broth with 2 pcs shrimp tempura, kamaboko (Japanese fish cake) and kani crab, veggies, shiitake mushroom, garnished with crunchy flakes, seaweed, and green onions. Shichimi togarashi (Japanese pepper) available upon request.</h2>
+      <span class="food-price">$19</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/KIDS' UDON.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">KIDS' UDON</h2>
+      <h5 class="food-detail">noodles and broth only</h2>
+      <span class="food-price">$9</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ <div id="KIDS BENTO" class="content">
+  <h2 class="title">KID'S BENTO</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/CHICKEN TERIYAKI BENTO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHICKEN TERIYAKI BENTO</h2>
+      <h5 class="food-detail">Served with bento box including steamed rice, 1pc shrimp tempura and 2pcs veggie tempura, 2pcs chicken gyoza, fresh fruit</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/SHRIMP TEMPURA BENTO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SHRIMP TEMPURA BENTO</h2>
+      <h5 class="food-detail">Served with bento box including steamed rice, 1pc shrimp tempura and 2pcs veggie tempura, 2pcs chicken gyoza, fresh fruit</h2>
+      <span class="food-price">$17</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/CHICKEN KATSU BENTO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CHICKEN KATSU BENTO</h2>
+      <h5 class="food-detail">Served with bento box including steamed rice, 1pc shrimp tempura and 2pcs veggie tempura, 2pcs chicken gyoza, fresh fruit</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/DON KATSU BENTO.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">DON KATSU BENTO</h2>
+      <h5 class="food-detail">Served with bento box including steamed rice, 1pc shrimp tempura and 2pcs veggie tempura, 2pcs chicken gyoza, fresh fruit</h2>
+      <span class="food-price">$15</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div id="SIDES" class="content">
+  <h2 class="title">SIDES</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/STEAMED RICE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">STEAMED RICE (GF)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/BROWN RICE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">BROWN RICE (GF)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/SUSHI RICE (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">SUSHI RICE (GF)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/KITCHEN ENTREES/STIR-FRIED VEGETABLES.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">STIR-FRIED VEGETABLES</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+
+ 
+ <div id="DRINK" class="content">
+  <h2 class="title">DRINK</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/FOUNTAIN SODAS.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">FOUNTAIN SODAS</h2>
+      <h5 class="food-detail">COKE, DIET COKE, DR. PEPPER, SPRITE, MINUTE MAID LEMONADE (free refills)</h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/COCA COLA ZERO (Can).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">COCA COLA ZERO (Can)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/CANADA DRY GINGER ALE (Can).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CANADA DRY GINGER ALE (Can)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ROOT BEER (Can).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ROOT BEER (Can)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/CALPICO JAPANESE SODA (Can).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">CALPICO JAPANESE SODA (Can)</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/JAPANESE MILK TEA (Can).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">JAPANESE MILK TEA (Can)</h2>
+      <h5 class="food-detail">Original black tea</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/RAMUNE JAPANESE SODA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">RAMUNE JAPANESE SODA</h2>
+      <h5 class="food-detail">Original, Orange, Strawberry, Peach, Grape, Melon</h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/APPLE JUICE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">APPLE JUICE</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ORANGE JUICE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ORANGE JUICE</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ICED TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ICED TEA</h2>
+      <h5 class="food-detail">Unsweet or Sweet</h2>
+      <span class="food-price">$3</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ICED GREEN TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ICED GREEN TEA</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ICED YUZU TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ICED YUZU TEA</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/HOT GREEN TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOT GREEN TEA</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/HOT JASMINE TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOT JASMINE TEA</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/HOT YUZU TEA.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">HOT YUZU TEA</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$5</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/JAPANESE SPARKLING JUICE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">JAPANESE SPARKLING JUICE</h2>
+      <h5 class="food-detail">Yuzu (Japanese Citrus), Ume (Japanese Plum), Ringo (Japanese Apple), Momo (Japanese Peach)</h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/TOPO CHICO SPARKLING WATER.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">TOPO CHICO SPARKLING WATER</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/FIJI WATER.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">FIJI WATER</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$4</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+
+ 
+ <div id="DESSERT" class="content">
+  <h2 class="title">DESSERT</h2>
+  <div class="shop-content">
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/MOCHI ICE CREAM (GF).jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MOCHI ICE CREAM (GF)</h2>
+      <h5 class="food-detail">Choose 2 flavors: Green Tea, Mango, Chocolate, Vanilla or Strawberry</h2>
+      <span class="food-price">$6</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/MATCHA GREEN TEA CHEESECAKE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">MATCHA GREEN TEA CHEESECAKE</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$7</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/ICE CREAM SANDWICH.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">ICE CREAM SANDWICH</h2>
+      <h5 class="food-detail">Choice of Green Tea or Vanilla</h2>
+      <span class="food-price">$6</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  <div class="food-box">
+      <div class="pic">
+          <img src="images/DRINK & DESSERT/BELGIAN CHOCOLATE MOUSSE CAKE.jpg" class="food-img">
+      </div>
+      <h2 class="food-title">BELGIAN CHOCOLATE MOUSSE CAKE</h2>
+      <h5 class="food-detail"></h2>
+      <span class="food-price">$8</span>
+      <ion-icon name="cart" class="add-cart"></ion-icon>
+  </div>
+ 
+  </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
