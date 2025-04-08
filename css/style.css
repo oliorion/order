@@ -90,6 +90,8 @@ header{
   color: #ff6348;
   position: absolute; /*카트위치*/
   right: 33px;/*카트위치*/
+  pointer-events: none;/*클릭안되게*/
+
 }
 
 img{
