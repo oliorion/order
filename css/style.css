@@ -81,6 +81,8 @@ header{
   line-height:20px ;
   border-radius: 50%;
   z-index: 99;
+  pointer-events: none;/*클릭안되게*/
+
 }
 
 #cart-icon{
@@ -90,7 +92,6 @@ header{
   color: #ff6348;
   position: absolute; /*카트위치*/
   right: 33px;/*카트위치*/
-  pointer-events: none;/*클릭안되게*/
 
 }
 
