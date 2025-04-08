@@ -73,7 +73,7 @@ header{
 .cart-count{
   position: absolute;
   background-color: #2f3542;
-  top: -5px;
+  top: 5px;
   right: 33px;
   padding: 3px;
   height: 20px;
@@ -92,7 +92,7 @@ header{
   color: #ff6348;
   position: absolute; /*카트위치*/
   right: 33px;/*카트위치*/
-
+  top : 10px
 }
 
 img{
