@@ -24,7 +24,7 @@ header{
   max-width: 1200px;
   margin: auto;
   width: 100%;
-  height: 80px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: left;
@@ -47,6 +47,7 @@ header{
   /* margin-top: 1.5rem;
   margin-bottom: 1.5rem; */
   color:#000000;
+  
 }
 
 .submenu {
@@ -103,7 +104,7 @@ img{
   padding: 4rem;
   margin: auto;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 3rem;
   
 }
 
@@ -315,14 +316,14 @@ transform: scale(1.5);
 .menu-bar {
   background-color: var(--color-black);
   
-  height: 80px;
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: left;
   padding: 0 0.5%;
-
   position: relative;
+  font-stretch:extra-condensed; /* 글자의 너비를 확장 */
 }
 
 .menu-bar ul {
@@ -347,8 +348,6 @@ transform: scale(1.5);
 
   transition: all 0.3s;
 
-
-  /* background-color:antiquewhite */
 
 
 
