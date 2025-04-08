@@ -28,6 +28,7 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: left;
+  
   background-color: #e9e9e9;
   line-height:1rem;
 }
@@ -321,6 +322,7 @@ transform: scale(1.5);
   display: flex;
   justify-content: space-between;
   align-items: left;
+  
   padding: 0 0.5%;
   position: relative;
   font-stretch:extra-condensed; /* 글자의 너비를 확장 */
@@ -333,8 +335,9 @@ transform: scale(1.5);
 
 .menu-bar ul li {
   /* width: 120px; */
-  padding: 10px 10px;
+  padding: 10px 5px;
   text-align: left;
+
 
   position: relative;
 
@@ -360,7 +363,8 @@ transform: scale(1.5);
 
 .fas {
   float: left;
-  margin-left: 1px;
+  margin-left: 5px;
+
   padding-top: 3px;
 }
 
