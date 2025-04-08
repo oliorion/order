@@ -145,12 +145,12 @@ h2.title{
 }
 
 .pic:hover img{
-transform: scale(1.5);
+transform: scale(2);
 }
 
 .food-img{
   transition: 0.4s;
-  aspect-ratio: 1/1;
+  /*aspect-ratio: 1/1;    사진 비율*/
   object-fit: cover;
 }
 
@@ -175,7 +175,8 @@ transform: scale(1.5);
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: #2ed573;
+  /* background-color: #2ed573; */
+    background-color: #2e8fd5;
   color:white;
   padding: 10px;
   font-size: 1.1rem;
