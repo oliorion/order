@@ -325,7 +325,7 @@ transform: scale(1.5);
   
   padding: 0 0.5%;
   position: relative;
-  font-stretch:extra-condensed; /* 글자의 너비를 확장 */
+ 
 }
 
 .menu-bar ul {
